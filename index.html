@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scan Package</title>
+  <body>
+    <form action="" class="form">
+      <input id="qrCodeData" autocomplete="off" /><button>Send</button>
+    </form>
+  </body>
+</html>
+
+
+<script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+	const isValidJSON = (jsonString)=> {
+			try {
+				JSON.parse(jsonString);
+				return true;
+			} catch (error) {
+				return false;
+			}
+		};
+  $(function () 
+  {
+    var socket = io();
+    $('form').submit(function()
+	{
+		if(isValidJSON($('#qrCodeData').val()) && $('#qrCodeData').val()) {
+			socket.emit('scanComplete', $('#qrCodeData').val());
+		}
+		socket.emit('packageInfo',1);
+		return false;
+    });
+	socket.on('packageInfo', function(msg){
+		if(msg==1) $('#qrCodeData').val('');
+    });
+  });
+  let typingTimer;
+  $('#qrCodeData').focus(()=>{$('#qrCodeData').val('');});
+  $('#qrCodeData').on("keyup",function() {
+	clearTimeout(typingTimer);
+    typingTimer = setTimeout(function(){$('form').submit()}, 300);
+  });
+</script>

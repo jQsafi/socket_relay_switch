@@ -1,0 +1,50 @@
+{
+	"DHK-A":
+		{
+			"relay": 1,
+			"time": 200,
+			"delay": 0
+		},
+		"DHK-B":
+		{
+			"relay": 2,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-C":
+		{
+			"relay": 3,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-D":
+		{
+			"relay": 4,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-E":
+		{
+			"relay": 5,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-F":
+		{
+			"relay": 6,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-G":
+		{
+			"relay": 7,
+			"time": 3000,
+			"delay": 0
+		},
+		"DHK-H":
+		{
+			"relay": 8,
+			"time": 500,
+			"delay": 0
+		}
+}
